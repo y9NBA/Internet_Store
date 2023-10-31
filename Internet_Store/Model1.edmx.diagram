@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="Model.User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Person" Width="1.5" PointX="5.375" PointY="0.875" />
+        <AssociationConnector Association="Model.User_Person" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

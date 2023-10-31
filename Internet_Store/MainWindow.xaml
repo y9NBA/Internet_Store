@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="Авторизация" Height="450" Width="500"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Width="200" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Margin="0,5"> 

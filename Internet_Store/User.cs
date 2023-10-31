@@ -18,6 +18,7 @@ namespace Internet_Store
         public User()
         {
             this.Role = new HashSet<Role>();
+            this.Person = new HashSet<Person>();
         }
     
         public string Login { get; set; }
@@ -25,5 +26,7 @@ namespace Internet_Store
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Role> Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Person> Person { get; set; }
     }
 }

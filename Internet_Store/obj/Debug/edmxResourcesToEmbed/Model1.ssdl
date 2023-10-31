@@ -10,6 +10,16 @@
     <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="First_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number_phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="Id" />
@@ -24,6 +34,14 @@
     <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="User_Person">
+    <Key>
+      <PropertyRef Name="Id_Person" />
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Id_Person" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Internet_Store.dbo.User_Role" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="User_Role">
@@ -34,6 +52,30 @@
     <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Role" Type="numeric" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
+  <Association Name="FK_User_Person_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="User_Person" Type="Self.User_Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Person">
+        <PropertyRef Name="Id_Person" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Person_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_Person" Type="Self.User_Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="User_Person">
+        <PropertyRef Name="Login" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_User_Role_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User_Role" Type="Self.User_Role" Multiplicity="*" />
@@ -60,14 +102,24 @@
   </Association>
   <EntityContainer Name="Хранилище ModelContainer">
     <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Person" EntityType="Self.User_Person" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_Role" EntityType="Self.User_Role" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [User_Role].[Login] AS [Login], 
     [User_Role].[Role] AS [Role]
     FROM [dbo].[User_Role] AS [User_Role]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_User_Person_Person" Association="Self.FK_User_Person_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="User_Person" EntitySet="User_Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Person_User" Association="Self.FK_User_Person_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Person" EntitySet="User_Person" />
+    </AssociationSet>
     <AssociationSet Name="FK_User_Role_Role" Association="Self.FK_User_Role_Role">
       <End Role="Role" EntitySet="Role" />
       <End Role="User_Role" EntitySet="User_Role" />

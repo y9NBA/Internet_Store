@@ -36,5 +36,24 @@
         <ScalarProperty Name="Login" ColumnName="Login" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="Model.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Number_phone" ColumnName="Number_phone" />
+          <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="User_Person" TypeName="Model.User_Person" StoreEntitySet="User_Person">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Login" ColumnName="Login" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Id_Person" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

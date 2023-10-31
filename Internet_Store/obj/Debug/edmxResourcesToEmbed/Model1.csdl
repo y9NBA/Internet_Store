@@ -25,6 +25,7 @@
     <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Role" Relationship="Self.User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Person" Relationship="Model.User_Person" FromRole="User" ToRole="Person" />
   </EntityType>
   <Association Name="User_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="*" />
@@ -38,5 +39,25 @@
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
+    <EntitySet Name="Person" EntityType="Model.Person" />
+    <AssociationSet Name="User_Person" Association="Model.User_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="First_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Middle_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Number_phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Model.User_Person" FromRole="Person" ToRole="User" />
+  </EntityType>
+  <Association Name="User_Person">
+    <End Type="Model.Person" Role="Person" Multiplicity="*" />
+    <End Type="Model.User" Role="User" Multiplicity="*" />
+  </Association>
 </Schema>

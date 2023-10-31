@@ -23,3 +23,16 @@ C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Internet_Store_
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\WindowCustomer.baml
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\WindowCustomerStore.g.cs
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\WindowCustomerStore.baml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\WindowRegisterUser.g.cs
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\WindowRegisterUser.baml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\MaterialDesignColors.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\MaterialDesignColors.pdb
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\App.baml

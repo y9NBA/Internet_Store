@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="WindowCustomerStore" Height="450" Width="800">
+        Title="WindowCustomerStore" Height="450" Width="800"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed">
     <Grid>
         <Button Content="Вернуться" Width="100" Height="100" Click="Button_Click"/>
     </Grid>

@@ -23,6 +23,10 @@ namespace Internet_Store
         {
             InitializeComponent();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -30,6 +34,10 @@ namespace Internet_Store
             Hide();
             windowCustomer.ShowDialog();
             Show();
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

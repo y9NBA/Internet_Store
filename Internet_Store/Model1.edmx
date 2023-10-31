@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Goods">
           <Key>
             <PropertyRef Name="id" />
@@ -14,6 +14,16 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="First_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number_phone" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -29,6 +39,14 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="User_Person">
+          <Key>
+            <PropertyRef Name="Id_Person" />
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Id_Person" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Internet_Store.dbo.User_Role" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="User_Role">
@@ -39,6 +57,30 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
+        <Association Name="FK_User_Person_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="User_Person" Type="Self.User_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Person">
+              <PropertyRef Name="Id_Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Person_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User_Person" Type="Self.User_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="User_Person">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User_Role" Type="Self.User_Role" Multiplicity="*" />
@@ -65,14 +107,24 @@
         </Association>
         <EntityContainer Name="Хранилище ModelContainer">
           <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Person" EntityType="Self.User_Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [User_Role].[Login] AS [Login], 
     [User_Role].[Role] AS [Role]
     FROM [dbo].[User_Role] AS [User_Role]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_User_Person_Person" Association="Self.FK_User_Person_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="User_Person" EntitySet="User_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Person_User" Association="Self.FK_User_Person_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User_Person" EntitySet="User_Person" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role_Role" Association="Self.FK_User_Role_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User_Role" EntitySet="User_Role" />
@@ -82,8 +134,7 @@
             <End Role="User_Role" EntitySet="User_Role" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -112,6 +163,7 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Person" Relationship="Model.User_Person" FromRole="User" ToRole="Person" />
         </EntityType>
         <Association Name="User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="*" />
@@ -125,7 +177,27 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="Person" EntityType="Model.Person" />
+          <AssociationSet Name="User_Person" Association="Model.User_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="First_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Middle_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number_phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Model.User_Person" FromRole="Person" ToRole="User" />
+        </EntityType>
+        <Association Name="User_Person">
+          <End Type="Model.Person" Role="Person" Multiplicity="*" />
+          <End Type="Model.User" Role="User" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -165,6 +237,25 @@
             </EndProperty>
             <EndProperty Name="User">
               <ScalarProperty Name="Login" ColumnName="Login" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="Model.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Number_phone" ColumnName="Number_phone" />
+                <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="User_Person" TypeName="Model.User_Person" StoreEntitySet="User_Person">
+            <EndProperty Name="User">
+              <ScalarProperty Name="Login" ColumnName="Login" />
+            </EndProperty>
+            <EndProperty Name="Person">
+              <ScalarProperty Name="Id" ColumnName="Id_Person" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

@@ -24,12 +24,22 @@ namespace Internet_Store
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowCustomerStore windowCustomerStore = new WindowCustomerStore();
             Hide();
             windowCustomerStore.ShowDialog();
             Show();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
