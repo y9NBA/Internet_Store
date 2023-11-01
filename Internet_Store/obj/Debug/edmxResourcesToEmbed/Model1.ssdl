@@ -18,7 +18,7 @@
     <Property Name="Last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="First_name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Number_phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number_phone" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -37,10 +37,10 @@
   <EntityType Name="User_Person">
     <Key>
       <PropertyRef Name="Id_Person" />
-      <PropertyRef Name="Login" />
+      <PropertyRef Name="Login_User" />
     </Key>
     <Property Name="Id_Person" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login_User" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Internet_Store.dbo.User_Role" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -72,7 +72,7 @@
         <PropertyRef Name="Login" />
       </Principal>
       <Dependent Role="User_Person">
-        <PropertyRef Name="Login" />
+        <PropertyRef Name="Login_User" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

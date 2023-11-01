@@ -18,14 +18,15 @@
                 <PasswordBox x:Name="Password" FontSize="14"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Нет аккаунта?" Margin="0,5,0,5" FontSize="10" />
+                <TextBlock Text="Нет аккаунта?" Margin="0,5,0,5" FontSize="10" VerticalAlignment="Center"/>
                 <Button
                     Content="Зарегистрируйтесь"
                     Click="Btn_Click_Register"
                     FontSize="10"
                     BorderBrush="White"
                     Foreground="Blue"
-                    Background="White"/>
+                    Background="White"
+                    Style="{StaticResource MaterialDesignFlatButton}"/>
             </StackPanel>
             <Button
                     Content="Войти"
@@ -38,6 +39,7 @@
                     Content="Войти как гость"
                     FontSize="10"
                     BorderBrush="White"
+                    Width="110"
                     Foreground="Blue"
                     Background="White"
                     Click="Btn_Click_Login_As_Guest"/>

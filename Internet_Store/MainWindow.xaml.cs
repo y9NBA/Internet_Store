@@ -51,7 +51,9 @@ namespace Internet_Store
 
         private void Btn_Click_Register(object sender, RoutedEventArgs e)
         {
-
+            WindowRegisterUser windowRegisterUser = new WindowRegisterUser();
+            this.Close();
+            windowRegisterUser.ShowDialog();
         }
 
         private void Btn_Click_Login_As_Guest(object sender, RoutedEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace Internet_Store
         {
             Singleton.DB.User.ToList();
             Singleton.DB.Person.ToList();
+            Singleton.DB.Role.ToList();
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -52,7 +54,6 @@ namespace Internet_Store
 
             User user = new User();
             Person person = new Person();
-            Role role = Singleton.DB.Role.Where(roleCheck => roleCheck.Name == "Покупатель").FirstOrDefault() as Role;
 
             user.Login = Login.Text;
             user.Password = Password.Password;
@@ -61,19 +62,21 @@ namespace Internet_Store
             person.First_name = First_Name.Text;
             person.Middle_name = Middle_Name.Text;
 
-            person.User.Add(user);
             user.Person.Add(person);
-            user.Role.Add(role);
 
-            Singleton.DB.User.Local.Add(user);
-            Singleton.DB.Person.Local.Add(person);
+            Singleton.DB.User.Add(user);
+            Singleton.DB.Person.Add(person);
 
             Singleton.DB.SaveChanges();
+            
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.Show();
         }
 
         private void Login_SelectionChanged(object sender, RoutedEventArgs e)
@@ -82,9 +85,16 @@ namespace Internet_Store
             {
                 if (userCheck.Login == Login.Text)
                 {
-                    MessageBox.Show("Пользователь с таким логином уже существует!", "Проблема", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    Login.Text = "";
-                    return;
+                    if(MessageBox.Show("Логин занят! Хотите поиенять?", "Проблема", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                    {
+                        Login.Cursor = Login.Cursor;
+                        return;
+                    }
+                    else
+                    {
+                        Login.Text = "";
+                        return;
+                    }
                 }
             }
         }
@@ -94,13 +104,20 @@ namespace Internet_Store
             foreach (Person personCheck in Singleton.DB.Person.Local)
             {
                 if(personCheck.Last_name == Last_Name.Text && personCheck.First_name == First_Name.Text 
-                    && personCheck.Middle_name == Middle_Name.Text)
+                    && personCheck.Middle_name == Middle_Name.Text && personCheck.User.Count != 0)
                 {
-                    MessageBox.Show("Человек с такими данными уже занесён!", "Проблема", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    Last_Name.Text = "";
-                    First_Name.Text = "";
-                    Middle_Name.Text = "";
-                    return;
+                    if (MessageBox.Show("Человек с такими данными уже занесён! Всё равно хотите добавить?", "Проблема", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
+                        Login.Text += personCheck.User.Count.ToString();
+                    }
+                    else
+                    {
+                        Last_Name.Text = "";
+                        First_Name.Text = "";
+                        Middle_Name.Text = "";
+                        Login.Text = "";
+                        return;
+                    }
                 }
             }
         }

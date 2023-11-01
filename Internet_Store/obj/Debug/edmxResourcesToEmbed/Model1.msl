@@ -4,38 +4,14 @@
     <EntitySetMapping Name="Goods">
       <EntityTypeMapping TypeName="Model.Goods">
         <MappingFragment StoreEntitySet="Goods">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Role">
-      <EntityTypeMapping TypeName="Model.Role">
-        <MappingFragment StoreEntitySet="Role">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="Model.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="User_Role" TypeName="Model.User_Role" StoreEntitySet="User_Role">
-      <EndProperty Name="Role">
-        <ScalarProperty Name="Id" ColumnName="Role" />
-      </EndProperty>
-      <EndProperty Name="User">
-        <ScalarProperty Name="Login" ColumnName="Login" />
-      </EndProperty>
-    </AssociationSetMapping>
     <EntitySetMapping Name="Person">
       <EntityTypeMapping TypeName="Model.Person">
         <MappingFragment StoreEntitySet="Person">
@@ -47,12 +23,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="User_Person" TypeName="Model.User_Person" StoreEntitySet="User_Person">
       <EndProperty Name="User">
-        <ScalarProperty Name="Login" ColumnName="Login" />
+        <ScalarProperty Name="Login" ColumnName="Login_User" />
       </EndProperty>
       <EndProperty Name="Person">
         <ScalarProperty Name="Id" ColumnName="Id_Person" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="User_Role" TypeName="Model.User_Role" StoreEntitySet="User_Role">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Login" ColumnName="Login" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
