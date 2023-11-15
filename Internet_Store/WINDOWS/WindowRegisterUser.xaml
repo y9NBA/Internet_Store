@@ -1,0 +1,95 @@
+﻿<Window x:Class="Internet_Store.WindowRegisterUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Internet_Store"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="450" Width="400"
+        Background="{DynamicResource MaterialDesignCardBackground}"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="TextBox.Width" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="PasswordBox.Width" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style x:Key="Stacks">
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="StackPanel.Orientation" Value="Horizontal"/>
+            <Setter Property="Control.Margin" Value="0,0,0,10"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="50" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Text="Фамилия"/>
+                <TextBox x:Name="Last_Name" SelectionChanged="Person1_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Text="Имя"/>
+                <TextBox x:Name="First_Name" SelectionChanged="Person2_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Text="Отчество"/>
+                <TextBox x:Name="Middle_Name" SelectionChanged="Person3_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Text="Логин"/>
+                <TextBox x:Name="Login" SelectionChanged="Login_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Text="Пароль"/>
+                <PasswordBox x:Name="Password"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Width="80" FontSize="12" Text="Примечание:"/>
+                <TextBlock FontSize="10" Height="55" Width="125">
+                    Пароль должен содержать<LineBreak/>латинские буквы, цифры<LineBreak/> и может содержать<LineBreak/>специальные знаки.
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}" >
+                <TextBlock FontSize="10">
+                    Подтверждение<LineBreak/>пароля
+                </TextBlock>
+                <PasswordBox x:Name="PasswordCheck" Height="22"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <Button x:Name="Register"
+                        Width="130"
+                        BorderThickness="1"
+                        Margin="10"
+                        FontSize="10"
+                        Content="Зарегистрироваться"
+                        Click="Register_Click"
+                        Background="DarkTurquoise"
+                        />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
+            <Button x:Name="Cancel" 
+                    Style="{StaticResource MaterialDesignToolForegroundButton}" 
+                    Click="Cancel_Click">
+                <Image HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       Source="../Pictures/Circle_Arrow_Back.png"/>
+            </Button>
+        </StackPanel>
+        <ComboBox x:Name="Role_On" Visibility="Hidden" VerticalAlignment="Bottom" DisplayMemberPath="Name"/>
+    </Grid>
+</Window>

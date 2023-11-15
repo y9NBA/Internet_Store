@@ -1,0 +1,16 @@
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\Internet_Store.Infrastructure.dll.config
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\Internet_Store.Infrastructure.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\Internet_Store.Infrastructure.pdb
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\EntityFramework.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\System.Data.SQLite.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\EntityFramework.xml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\bin\Debug\System.Data.SQLite.xml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\obj\Debug\Internet_Store.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\obj\Debug\Internet_Store.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\obj\Debug\Internet_Store.Infrastructure.csproj.CopyComplete
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\obj\Debug\Internet_Store.Infrastructure.dll
+C:\Users\User\#\Projects\Internet_Store\Internet_Store.Infrastructure\obj\Debug\Internet_Store.Infrastructure.pdb
