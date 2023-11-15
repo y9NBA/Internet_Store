@@ -1,9 +1,10 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Linq;
+
 namespace Infrastructure
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-
     public partial class Context : DbContext
     {
         public Context()
