@@ -66,7 +66,7 @@ namespace Infrastructure
         {
             using (var context = new Context())
             {
-                if (context.Person.Remove(PersonMapper.Map(GetById(id))) == null)
+                if (context.Person.Remove(context.Person.Find(id)) == null && context.User.Remove(context.User.Find(id)) == null)
                 {
                     return null;
                 }
@@ -83,8 +83,9 @@ namespace Infrastructure
             using (var context = new Context())
             {
                 Person person = PersonMapper.Map(personModel);
+                User user = PersonMapper.Map(personModel).User;
 
-                if (context.Person.Add(person) == null)
+                if (context.Person.Add(person) == null && context.User.Add(user) == null)
                 {
                     return null;
                 }

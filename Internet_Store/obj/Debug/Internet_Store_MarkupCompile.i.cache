@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\App.xaml
-7-1244209965
+8359115930
 
-12318048176
+13-787775795
 252009543020
-Window\MainWindow.xaml;Window\WindowAuthorisation.xaml;Window\WindowCabinet.xaml;Window\WindowEditingGood.xaml;Window\WindowEditingListPersonsUsers.xaml;Window\WindowEditingOrder.xaml;Window\WindowRegister.xaml;
+Windows\MainWindow.xaml;Windows\WindowAddPersonUser.xaml;Windows\WindowAuth.xaml;Windows\WindowRegister.xaml;Windows\WindowCabinet.xaml;Windows\WindowEditingGood.xaml;Windows\WindowEditingListPersonsUsers.xaml;Windows\WindowEditingOrder.xaml;
 
-True
+False
 
