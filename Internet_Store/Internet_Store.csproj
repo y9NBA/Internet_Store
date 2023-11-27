@@ -87,6 +87,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Window\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\WindowAuthorisation.xaml.cs">
+      <DependentUpon>WindowAuthorisation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\WindowCabinet.xaml.cs">
+      <DependentUpon>WindowCabinet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\WindowEditingGood.xaml.cs">
+      <DependentUpon>WindowEditingGood.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window\WindowEditingListPersonsUsers.xaml.cs">
       <DependentUpon>WindowEditingListPersonsUsers.xaml</DependentUpon>
     </Compile>
@@ -94,7 +106,37 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Window\WindowEditingOrder.xaml.cs">
+      <DependentUpon>WindowEditingOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\WindowRegister.xaml.cs">
+      <DependentUpon>WindowRegister.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Window\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\WindowAuthorisation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\WindowCabinet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\WindowEditingGood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window\WindowEditingListPersonsUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\WindowEditingOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\WindowRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
