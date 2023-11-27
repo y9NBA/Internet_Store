@@ -8,7 +8,9 @@ namespace Infrastructure
 {
     public class UserModel
     {
+        public long ID { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public long RoleID {  get; set; }
     }
 }

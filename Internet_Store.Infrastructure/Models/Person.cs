@@ -9,13 +9,7 @@ namespace Infrastructure
     [Table("Person")]
     public partial class Person
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Person()
-        {
-            User = new HashSet<User>();
-        }
-
-        public long Id { get; set; }
+        public long ID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -29,10 +23,23 @@ namespace Infrastructure
         [StringLength(50)]
         public string Middle_name { get; set; }
 
-        [StringLength(50)]
+        [Required]
+        [StringLength(1)]
+        public string Gender { get; set; }
+
+        public DateTime Birthday { get; set; }
+
+        [Required]
+        [StringLength(12)]
         public string Number_phone { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        [StringLength(50)]
+        public string Email { get; set; }
+
+        public long DiscountID { get; set; }
+
+        public virtual Discount Discount { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

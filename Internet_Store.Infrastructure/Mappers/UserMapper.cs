@@ -12,8 +12,10 @@ namespace Infrastructure
         {
             UserModel viewModel = new UserModel()
             {
+                ID = entity.ID,
                 Login = entity.Login,
-                Password = entity.Password
+                Password = entity.Password,
+                RoleID = entity.RoleID
             };
             return viewModel;
         }
@@ -21,6 +23,23 @@ namespace Infrastructure
         {
             var viewModels = entities.Select(i => Map(i)).ToList();
             return viewModels;
+        }
+
+        public static User Map(UserModel entity)
+        {
+            User model = new User()
+            {
+                ID = entity.ID,
+                Login = entity.Login,
+                Password = entity.Password,
+                RoleID = entity.RoleID
+            };
+            return model;
+        }
+        public static List<User> Map(List<UserModel> entities)
+        {
+            var models = entities.Select(i => Map(i)).ToList();
+            return models;
         }
     }
 }

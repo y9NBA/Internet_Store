@@ -6,20 +6,30 @@ namespace Infrastructure
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Role")]
-    public partial class Role
+    [Table("Custom")]
+    public partial class Custom
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Custom()
         {
             User = new HashSet<User>();
         }
 
         public long ID { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Name_Role { get; set; }
+        public DateTime Date_Order { get; set; }
+
+        public long StatusID { get; set; }
+
+        public long GoodID { get; set; }
+
+        public int Total_Amount { get; set; }
+
+        public decimal Total_Price { get; set; }
+
+        public virtual Status Status { get; set; }
+
+        public virtual Good Good { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User { get; set; }

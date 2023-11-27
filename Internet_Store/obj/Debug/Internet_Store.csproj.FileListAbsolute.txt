@@ -25,12 +25,12 @@ C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\MaterialDesignT
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\App.baml
-C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Window1.g.cs
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\System.Data.SQLite.dll
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\System.Data.SQLite.xml
-C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Window1.baml
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Internet_Store.Infrastructure.dll
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Internet_Store.Infrastructure.pdb
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\bin\Debug\Internet_Store.Infrastructure.dll.config
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Window\WindowEditingListPersonsUsers.g.cs
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Window\WindowEditingListPersonsUsers.baml
