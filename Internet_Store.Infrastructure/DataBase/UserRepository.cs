@@ -3,65 +3,95 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects.DataClasses;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class UserRepository : IBaseReposiroty<User>
+    public class UserRepository : IBaseReposiroty<UserModel>
     {
-        public User GetByName(string name)
+        public UserModel GetByName(string name)
         {
             using (var context = new Context())
             {
                 var item = context.User.FirstOrDefault(x => x.Login == name);
-                return item;
+                return UserMapper.Map(item);
             }
         }
 
-        public User GetById(long id)
+        public UserModel GetById(long id)
         {
             using (var context = new Context())
             {
                 var item = context.User.FirstOrDefault(x => x.ID == id);
-                return item;
+                return UserMapper.Map(item);
             }
         }
 
-        public List<User> GetList()
+        public List<UserModel> GetList()
         {
             using (Context context = new Context())
             {
-                return context.User.ToList();
+                return UserMapper.Map(context.User.ToList());
             }
         }
-        public User Update(User user)
+        public UserModel Update(UserModel user)
         {
             using (var context = new Context())
             {
-                context.User.Find(user);
-                return null;
+                int countP = context.Person.ToList().Count;
+                int countU = context.User.ToList().Count;
+
+                context.Person.AddOrUpdate(UserMapper.Map(user).Person);
+                context.User.AddOrUpdate(UserMapper.Map(user));
+
+                if (context.Person.ToList().Count != countP && context.User.ToList().Count != countU)
+                {
+                    Delete(context.User.Last().ID);
+                    return null;
+                }
+                else
+                {
+                    context.SaveChanges();
+                    return new UserModel();
+                }
             }
         }
 
-        public User Delete(long id)
+        public UserModel Delete(long id)
         {
             using (var context = new Context())
             {
-                context.User.Remove(GetById(id));
-                context.SaveChanges();
-                return null;
+                if (context.Person.Remove(context.Person.Find(id)) == null && context.User.Remove(context.User.Find(id)) == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    context.SaveChanges();
+                    return new UserModel();
+                }
             }
         }
 
-        public User Add(User user)
+        public UserModel Add(UserModel userModel)
         {
             using (var context = new Context())
             {
-                context.User.Add(user);
-                context.SaveChanges();
-                return null;
+                Person person = UserMapper.Map(userModel).Person;
+                User user = UserMapper.Map(userModel);
+
+                if (context.Person.Add(person) == null && context.User.Add(user) == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    context.SaveChanges();
+                    return new UserModel();
+                }
             }
         }
 

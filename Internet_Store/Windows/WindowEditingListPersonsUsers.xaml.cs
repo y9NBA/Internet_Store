@@ -49,7 +49,7 @@ namespace Internet_Store
             try
             {
                 persons.Delete(personM.ID);
-                MessageBox.Show($"Удаление записи под номером {personM.ID} прошло успешно", "База данных", MessageBoxButton.OK, MessageBoxImage.Error););
+                MessageBox.Show($"Удаление записи под номером {personM.ID} прошло успешно", "База данных", MessageBoxButton.OK, MessageBoxImage.Error);
                 Updating();
             }
             catch

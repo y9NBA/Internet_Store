@@ -94,7 +94,6 @@ namespace Infrastructure
                     context.SaveChanges();
                     return new PersonModel();
                 }
-
             }
         }
     }

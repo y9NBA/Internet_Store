@@ -64,8 +64,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consts\CurrentUser.cs" />
+    <Compile Include="Consts\Quest.cs" />
+    <Compile Include="DataBase\GoodRepository.cs" />
     <Compile Include="DataBase\PersonRepository.cs" />
+    <Compile Include="Mappers\CustomMapper.cs" />
+    <Compile Include="Mappers\DiscountMapper.cs" />
+    <Compile Include="Mappers\GoodMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
+    <Compile Include="Mappers\ReviewMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="DataBase\IBaseReposiroty.cs" />
     <Compile Include="DataBase\UserRepository.cs" />
@@ -80,7 +87,14 @@
     <Compile Include="Models\Type.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CustomModel.cs" />
+    <Compile Include="ViewModels\DiscountModel.cs" />
+    <Compile Include="ViewModels\GoodModel.cs" />
     <Compile Include="ViewModels\PersonModel.cs" />
+    <Compile Include="ViewModels\ReviewModel.cs" />
+    <Compile Include="ViewModels\RoleModel.cs" />
+    <Compile Include="ViewModels\StatusModel.cs" />
+    <Compile Include="ViewModels\TypeModel.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -40,7 +40,10 @@ namespace Infrastructure
                 try
                 {
                     int[] birthD = entity.Birthday.Split('.').ToList().Select(i => Convert.ToInt32(i)).ToArray();
-                    if (DateTime.UtcNow.Year - birthD[2] > 150 || DateTime.UtcNow.Year - birthD[2] < 0) throw new ArgumentOutOfRangeException(); 
+                    if (DateTime.UtcNow.Year - birthD[2] > 150 || DateTime.UtcNow.Year - birthD[2] < 0)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
                     return new DateTime(birthD[2], birthD[1], birthD[0]);
                 }
                 catch
@@ -52,14 +55,16 @@ namespace Infrastructure
             Person model = new Person()
             {
                 ID = entity.ID,
-                Last_name = Regex.IsMatch(entity.Last_name, @"^[a-zA-Z]+$") == true ? entity.Last_name : throw new Exception("Name"),
-                First_name = Regex.IsMatch(entity.First_name, @"^[a-zA-Z]+$") == true ? entity.First_name : throw new Exception("Name"),
-                Middle_name = Regex.IsMatch(entity.Middle_name, @"^[a-zA-Z]+$") == true ? entity.Middle_name : throw new Exception("Name"),
+                Last_name = Regex.IsMatch(entity.Last_name, @"^[a-zA-Z]+$") == true ? entity.Last_name.Trim() : throw new Exception("Name"),
+                First_name = Regex.IsMatch(entity.First_name, @"^[a-zA-Z]+$") == true ? entity.First_name.Trim() : throw new Exception("Name"),
+                Middle_name = Regex.IsMatch(entity.Middle_name, @"^[a-zA-Z]+$") == true ? entity.Middle_name.Trim() : throw new Exception("Name"),
                 Gender = entity.Gender == "мужской" ? "м" : entity.Gender == "женский" ? "ж" : throw new Exception("Gender"),
                 Birthday = entity.Birthday == "" ? new DateTime() : ConvertData(),
                 Number_phone = Regex.IsMatch(entity.Number_phone, @"\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}") == true ? entity.Number_phone : throw new Exception("Number_Phone"),
-                Email = entity.Email == "" ? "" : Regex.IsMatch(entity.Email, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$") == true ? entity.Email : throw new Exception("Email"),
+                Email = entity.Email == "" 
+                            ? "" : Regex.IsMatch(entity.Email, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$") == true 
+                            ? entity.Email : throw new Exception("Email"),
                 DiscountID = entity.DiscountID,
                 User = entity.User
             };
