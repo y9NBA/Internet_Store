@@ -12,5 +12,10 @@ namespace Infrastructure
         public string Login { get; set; }
         public string Password { get; set; }
         public long RoleID {  get; set; }
+        public Role Role { get; set; }
+        public PersonModel Person { get; set; }
+        public List<Custom> Customs { get; set; }
+        public List<Review> Reviews { get; set; }
+        public List<Good> Goods { get; set; }
     }
 }

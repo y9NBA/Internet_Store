@@ -87,63 +87,63 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Windows\MainWindow.xaml.cs">
+    <Compile Include="Windows\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindowAddPersonUser.xaml.cs">
+    <Compile Include="Windows\WindowsAdmin\WindowAddPersonUser.xaml.cs">
       <DependentUpon>WindowAddPersonUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindowAuth.xaml.cs">
+    <Compile Include="Windows\Main\WindowAuth.xaml.cs">
       <DependentUpon>WindowAuth.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindowRegister.xaml.cs">
+    <Compile Include="Windows\Main\WindowRegister.xaml.cs">
       <DependentUpon>WindowRegister.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindowCabinet.xaml.cs">
+    <Compile Include="Windows\Main\WindowCabinet.xaml.cs">
       <DependentUpon>WindowCabinet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindowEditingGood.xaml.cs">
+    <Compile Include="Windows\WindowsSeller\WindowEditingGood.xaml.cs">
       <DependentUpon>WindowEditingGood.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\WindowEditingListPersonsUsers.xaml.cs">
+    <Compile Include="Windows\WindowsAdmin\WindowEditingListPersonsUsers.xaml.cs">
       <DependentUpon>WindowEditingListPersonsUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Windows\WindowEditingOrder.xaml.cs">
+    <Compile Include="Windows\WindowsCustomer\WindowEditingOrder.xaml.cs">
       <DependentUpon>WindowEditingOrder.xaml</DependentUpon>
     </Compile>
-    <Page Include="Windows\MainWindow.xaml">
+    <Page Include="Windows\Main\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowAddPersonUser.xaml">
+    <Page Include="Windows\WindowsAdmin\WindowAddPersonUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowAuth.xaml">
+    <Page Include="Windows\Main\WindowAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowRegister.xaml">
+    <Page Include="Windows\Main\WindowRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowCabinet.xaml">
+    <Page Include="Windows\Main\WindowCabinet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowEditingGood.xaml">
+    <Page Include="Windows\WindowsSeller\WindowEditingGood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowEditingListPersonsUsers.xaml">
+    <Page Include="Windows\WindowsAdmin\WindowEditingListPersonsUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowEditingOrder.xaml">
+    <Page Include="Windows\WindowsCustomer\WindowEditingOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

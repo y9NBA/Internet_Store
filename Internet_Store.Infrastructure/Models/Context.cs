@@ -80,8 +80,7 @@ namespace Infrastructure
 
             modelBuilder.Entity<User>()
                 .HasOptional(e => e.Person)
-                .WithRequired(e => e.User)
-                .WillCascadeOnDelete(true);
+                .WithRequired(e => e.User);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Review)

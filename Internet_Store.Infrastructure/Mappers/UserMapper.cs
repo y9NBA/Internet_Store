@@ -15,7 +15,12 @@ namespace Infrastructure
                 ID = entity.ID,
                 Login = entity.Login,
                 Password = entity.Password,
-                RoleID = entity.RoleID
+                RoleID = entity.RoleID,
+                Role = entity.Role,
+                Person = PersonMapper.Map(entity.Person),
+                Goods = entity.Good.ToList(),
+                Reviews = entity.Review.ToList(),
+                Customs = entity.Custom.ToList()
             };
             return viewModel;
         }
@@ -32,7 +37,12 @@ namespace Infrastructure
                 ID = entity.ID,
                 Login = entity.Login,
                 Password = entity.Password,
-                RoleID = entity.RoleID
+                RoleID = entity.RoleID,
+                Role = entity.Role,
+                Person = PersonMapper.Map(entity.Person),
+                Good = entity.Goods,
+                Review = entity.Reviews,
+                Custom = entity.Customs
             };
             return model;
         }
