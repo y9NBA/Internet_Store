@@ -90,6 +90,9 @@
     <Compile Include="Windows\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Main\WindowGoods.xaml.cs">
+      <DependentUpon>WindowGoods.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\WindowsAdmin\WindowAddPersonUser.xaml.cs">
       <DependentUpon>WindowAddPersonUser.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <DependentUpon>WindowEditingOrder.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\Main\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Main\WindowGoods.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,7 +193,12 @@
       <Name>Internet_Store.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pictures\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Store_Icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

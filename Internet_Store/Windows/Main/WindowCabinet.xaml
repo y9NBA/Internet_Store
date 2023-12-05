@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="WindowCabinet" Height="450" Width="800">
+        Title="Личный кабинет" Height="450" Width="800">
     <Grid>
-        
+        <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Click="Cancel_Click">
+            <Image Source="\Pictures\Circle_Arrow_Back.png"/>
+        </Button>
     </Grid>
 </Window>

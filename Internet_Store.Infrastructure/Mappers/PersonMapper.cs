@@ -24,7 +24,7 @@ namespace Infrastructure
                 Number_phone = entity.Number_phone,
                 Email = entity.Email,
                 DiscountID = entity.DiscountID,
-                User = entity.User                
+                User = entity.User
             };
             return viewModel;
         }
@@ -55,9 +55,9 @@ namespace Infrastructure
             Person model = new Person()
             {
                 ID = entity.ID,
-                Last_name = Regex.IsMatch(entity.Last_name, @"^[a-zA-Z]+$") == true ? entity.Last_name.Trim() : throw new Exception("Name"),
-                First_name = Regex.IsMatch(entity.First_name, @"^[a-zA-Z]+$") == true ? entity.First_name.Trim() : throw new Exception("Name"),
-                Middle_name = Regex.IsMatch(entity.Middle_name, @"^[a-zA-Z]+$") == true ? entity.Middle_name.Trim() : throw new Exception("Name"),
+                Last_name = Regex.IsMatch(entity.Last_name, @"^[а-яА-я]+$") == true ? entity.Last_name.Trim() : throw new Exception("Name"),
+                First_name = Regex.IsMatch(entity.First_name, @"^[а-яА-я]+$") == true ? entity.First_name.Trim() : throw new Exception("Name"),
+                Middle_name = Regex.IsMatch(entity.Middle_name, @"^[а-яА-я]+$") == true ? entity.Middle_name.Trim() : throw new Exception("Name"),
                 Gender = entity.Gender == "мужской" ? "м" : entity.Gender == "женский" ? "ж" : throw new Exception("Gender"),
                 Birthday = entity.Birthday == "" ? new DateTime() : ConvertData(),
                 Number_phone = Regex.IsMatch(entity.Number_phone, @"\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}") == true ? entity.Number_phone : throw new Exception("Number_Phone"),

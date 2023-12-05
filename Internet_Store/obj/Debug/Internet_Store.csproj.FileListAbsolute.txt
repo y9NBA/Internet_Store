@@ -48,3 +48,5 @@ C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Windows\Main\Wi
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowEditingGood.baml
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowEditingListPersonsUsers.baml
 C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsCustomer\WindowEditingOrder.baml
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoods.g.cs
+C:\Users\User\#\Projects\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoods.baml

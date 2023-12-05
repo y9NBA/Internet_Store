@@ -5,12 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Главное меню" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="Stack_Button">
+            <Setter Property="StackPanel.HorizontalAlignment" Value="Center"/>
+            <Setter Property="StackPanel.VerticalAlignment" Value="Center"/>
+            <Setter Property="StackPanel.Orientation" Value="Vertical"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        <StackPanel VerticalAlignment="Center">
-        <Button x:Name="Customer" Content="За покупками?"/>
-        <Button x:Name="Seller" Content="Выложить товар?"/>
-        <Button x:Name="Admin" Content="Админиистрировать?"/>
+        <Button Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                Click="Cancel_Click">
+            <Image Source="\Pictures\Circle_Arrow_Back.png"/>
+        </Button>
+        <StackPanel x:Name="Button_Customer" Style="{StaticResource Stack_Button}">
+            <Button Content="Товары" Click="Goods_Click"/>
+            <Button Content="Корзина"/>
+            <Button Content="Профиль"/>
+        </StackPanel>
+        <StackPanel x:Name="Button_Admin" Style="{StaticResource Stack_Button}">
+            <Button Content="Список товаров" Click="Goods_Click"/>
+            <Button Content="Список пользователей" Click="Editing_Users_Click"/>
+            <Button Content="Профиль"/>
+        </StackPanel>
+        <StackPanel x:Name="Button_Seller" Style="{StaticResource Stack_Button}">
+            <Button Content="Товары" Click="Goods_Click"/>
+            <Button Content="Мои товары"/>
+            <Button Content="Профиль"/>
         </StackPanel>
     </Grid>
 </Window>

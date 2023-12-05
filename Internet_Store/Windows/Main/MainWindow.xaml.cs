@@ -1,4 +1,5 @@
 ﻿using Infrastructure;
+using Internet_Store.Windows.Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,18 +28,45 @@ namespace Internet_Store
             switch (CurrentUser.Role)
             {
                 case "Покупатель":
-                    Seller.Visibility = Visibility.Collapsed;
-                    Admin.Visibility = Visibility.Collapsed;
+                    Button_Seller.Visibility = Visibility.Collapsed;
+                    Button_Admin.Visibility = Visibility.Collapsed;
                     break;
                 case "Продавец":
-                    Admin.Visibility = Visibility.Collapsed;
-                    Customer.Visibility = Visibility.Collapsed;
+                    Button_Customer.Visibility = Visibility.Collapsed;
+                    Button_Admin.Visibility = Visibility.Collapsed;
                     break;
                 case "Админ": 
-                    Customer.Visibility = Visibility.Collapsed;
-                    Seller.Visibility = Visibility.Collapsed;
+                    Button_Customer.Visibility = Visibility.Collapsed;
+                    Button_Seller.Visibility = Visibility.Collapsed;
                     break;
             }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Хотите выйти из аккаунта?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                CurrentUser.User = null;
+                CurrentUser.Role = null;
+
+                WindowAuth windowAuth = new WindowAuth();
+                this.Close();
+                windowAuth.ShowDialog();
+            }
+        }
+
+        private void Editing_Users_Click(object sender, RoutedEventArgs e)
+        {
+            WindowEditingListPersonsUsers windowEditingListPersonsUsers = new WindowEditingListPersonsUsers();
+            this.Close();
+            windowEditingListPersonsUsers.ShowDialog();
+        }
+
+        private void Goods_Click(object sender, RoutedEventArgs e)
+        {
+            WindowGoods windowGoods = new WindowGoods();
+            this.Close();
+            windowGoods.ShowDialog();
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Infrastructure
                 int countU = context.User.ToList().Count;
 
                 context.Person.AddOrUpdate(PersonMapper.Map(person));
-                context.User.AddOrUpdate(PersonMapper.Map(person).User);
+                context.User.AddOrUpdate(UserMapper.Map(UserMapper.Map(PersonMapper.Map(person).User)));
                 
                 if (context.Person.ToList().Count != countP && context.User.ToList().Count != countU)
                 {

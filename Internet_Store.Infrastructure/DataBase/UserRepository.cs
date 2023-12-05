@@ -17,7 +17,14 @@ namespace Infrastructure
             using (var context = new Context())
             {
                 var item = context.User.FirstOrDefault(x => x.Login == name);
-                return UserMapper.Map(item);
+                if(item == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return UserMapper.Map(item);
+                }
             }
         }
 
@@ -44,7 +51,7 @@ namespace Infrastructure
                 int countP = context.Person.ToList().Count;
                 int countU = context.User.ToList().Count;
 
-                context.Person.AddOrUpdate(UserMapper.Map(user).Person);
+                context.Person.AddOrUpdate(PersonMapper.Map(user.Person));
                 context.User.AddOrUpdate(UserMapper.Map(user));
 
                 if (context.Person.ToList().Count != countP && context.User.ToList().Count != countU)
@@ -80,7 +87,7 @@ namespace Infrastructure
         {
             using (var context = new Context())
             {
-                Person person = UserMapper.Map(userModel).Person;
+                Person person = PersonMapper.Map(userModel.Person);
                 User user = UserMapper.Map(userModel);
 
                 if (context.Person.Add(person) == null && context.User.Add(user) == null)

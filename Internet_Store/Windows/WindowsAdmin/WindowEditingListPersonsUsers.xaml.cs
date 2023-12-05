@@ -104,5 +104,12 @@ namespace Internet_Store
         {
             Updating();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.ShowDialog();
+        }
     }
 }

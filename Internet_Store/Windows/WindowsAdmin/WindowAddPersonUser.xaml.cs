@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,7 +46,11 @@ namespace Internet_Store
                     Gender = Gender.Text != string.Empty ? Gender.Text : throw new Exception("Gender"),
                     User = new User()
                     {
-                        Login = _userRepository.GetByName(Login.Text) == null && Login.Text != string.Empty ? Login.Text : throw new Exception("Login"),
+                        Login = _userRepository.GetByName(Login.Text) == null && Login.Text != string.Empty
+                                ? Regex.IsMatch(Login.Text, @"^[a-zA-Z](.[a-zA-Z0-9_-]*)$") == true
+                                ? Login.Text
+                                : throw new Exception("LoginInCorrect")
+                                : throw new Exception("Login"),
                         Password = Password.Password == PasswordCheck.Password && Password.Password != string.Empty ? Password.Password : throw new Exception("Password"),
                         RoleID = 1
                     },
@@ -76,6 +81,9 @@ namespace Internet_Store
                         break;
                     case "Gender":
                         MessageBox.Show("Поле Пол не заполнено", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Stop); 
+                        break;
+                    case "LoginInCorrect":
+                        MessageBox.Show("Логин может содержать только латинские буквы, цифры, тире и символ нижнего подчёркивания", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Stop);
                         break;
                     default:
                         MessageBox.Show("Проверьте корректность введённых данных", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Stop); 

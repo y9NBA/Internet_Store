@@ -5,16 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Авторизация" Height="450" Width="500"
+        Title="Авторизация" Height="450" Width="500" Icon="\Pictures\Store_Icon.ico"
+        Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen">
+    
     <Grid>
+        <Button Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                Click="Cancel_Click">
+            <Image Source="\Pictures\Circle_Arrow_Back.png"/>
+        </Button>
         <StackPanel Width="200" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Margin="0,5">
-                <TextBlock Text="Ваш логин:" FontSize="14"/>
+                <TextBlock Text="Логин:" FontSize="14"/>
                 <TextBox x:Name="Login" FontSize="14"/>
             </StackPanel>
             <StackPanel Margin="0, 5">
-                <TextBlock Text="Ваш пароль:" FontSize="14"/>
+                <TextBlock Text="Пароль:" FontSize="14"/>
                 <PasswordBox x:Name="Password" FontSize="14"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -40,6 +47,7 @@
                     Click="Login_Click"/>
             <Button
                     Content="Войти как гость"
+                    Margin="10"
                     FontSize="10"
                     BorderBrush="White"
                     Width="110"

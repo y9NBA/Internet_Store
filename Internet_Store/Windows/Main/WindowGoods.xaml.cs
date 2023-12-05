@@ -12,21 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Internet_Store
+namespace Internet_Store.Windows.Main
 {
     /// <summary>
-    /// Логика взаимодействия для WindowCabinet.xaml
+    /// Логика взаимодействия для WindowGoods.xaml
     /// </summary>
-    public partial class WindowCabinet : Window
+    public partial class WindowGoods : Window
     {
-        public WindowCabinet()
+        public WindowGoods()
         {
             InitializeComponent();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.ShowDialog();
         }
     }
 }

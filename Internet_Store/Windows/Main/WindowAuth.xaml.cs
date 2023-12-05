@@ -25,9 +25,12 @@ namespace Internet_Store
         {
             InitializeComponent();
             users = new UserRepository();
-            users.GetList();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            users.GetList();
+        }
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             WindowRegister windowRegister = new WindowRegister();
@@ -59,6 +62,15 @@ namespace Internet_Store
             if(MessageBox.Show($"Вы уверены, что хотите войти как гость?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 MessageBox.Show($"Вы вошли как гость\nВам будут недоступны некоторые функции", "Store", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Вы хотите выйти из приложения?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Пользователь, приходите ещё)\nВаш Internet_Store", "Store", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
             }
         }
     }

@@ -87,12 +87,9 @@
             </StackPanel>
         </StackPanel>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
-            <Button x:Name="Cancel" 
-                    Style="{StaticResource MaterialDesignToolForegroundButton}" 
+            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" 
                     Click="Cancel_Click">
-                <Image HorizontalAlignment="Center" 
-                       VerticalAlignment="Center" 
-                       Source="../Pictures/Circle_Arrow_Back.png"/>
+                <Image Source="\Pictures\Circle_Arrow_Back.png"/>
             </Button>
         </StackPanel>
     </Grid>
