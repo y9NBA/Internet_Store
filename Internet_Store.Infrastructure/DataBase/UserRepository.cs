@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -71,7 +72,7 @@ namespace Infrastructure
         {
             using (var context = new Context())
             {
-                if (context.Person.Remove(context.Person.Find(id)) == null && context.User.Remove(context.User.Find(id)) == null)
+                if (context.User.Remove(context.User.Find(id)) == null)
                 {
                     return null;
                 }
@@ -87,10 +88,9 @@ namespace Infrastructure
         {
             using (var context = new Context())
             {
-                Person person = PersonMapper.Map(userModel.Person);
                 User user = UserMapper.Map(userModel);
 
-                if (context.Person.Add(person) == null && context.User.Add(user) == null)
+                if (context.User.Add(user) == null)
                 {
                     return null;
                 }

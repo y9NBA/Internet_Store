@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Список пользователей" MinHeight="450" MinWidth="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Список пользователей" MinHeight="450" MinWidth="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Loaded="Window_Loaded">
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -15,18 +16,18 @@
                         Click="Cancel_Click">
                     <Image Source="\Pictures\Circle_Arrow_Back.png"/>
                 </Button>
-                <DataGrid x:Name="ViewPersons" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <DataGrid x:Name="ViewList" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding ID}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Роль" Binding="{Binding Role}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Логин" Binding="{Binding User.Login}"/>
-                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Last_name}"/>
-                        <DataGridTextColumn Header="Имя" Binding="{Binding First_name}"/>
-                        <DataGridTextColumn Header="Отчество" Binding="{Binding Middle_name}"/>
-                        <DataGridTextColumn Header="Пол" Binding="{Binding Gender}"/>
-                        <DataGridTextColumn Header="Телефон" Binding="{Binding Number_phone}"/>
-                        <DataGridTextColumn Header="Почта" Binding="{Binding Email}"/>
-                        <DataGridTextColumn Header="День рождения" Binding="{Binding Birthday}"/>
+                        <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name_Role}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Last_name}"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Person.First_name}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Middle_name}"/>
+                        <DataGridTextColumn Header="Пол" Binding="{Binding Person.Gender}"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Person.Number_phone}"/>
+                        <DataGridTextColumn Header="Почта" Binding="{Binding Person.Email}"/>
+                        <DataGridTextColumn Header="День рождения" Binding="{Binding Person.Birthday}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" 

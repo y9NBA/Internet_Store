@@ -14,7 +14,6 @@ namespace Infrastructure
         {
             Custom = new HashSet<Custom>();
             Review = new HashSet<Review>();
-            User = new HashSet<User>();
         }
 
         public long ID { get; set; }
@@ -33,17 +32,16 @@ namespace Infrastructure
 
         public long TypeID { get; set; }
 
-        public decimal SellerID { get; set; }
+        public long SellerID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Custom> Custom { get; set; }
+
+        public virtual User User { get; set; }
 
         public virtual Type Type { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Review> Review { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
     }
 }

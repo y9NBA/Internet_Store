@@ -16,7 +16,7 @@ using Infrastructure;
 namespace Internet_Store
 {
     /// <summary>
-    /// Логика взаимодействия для WindowEditingListUsers.xaml
+    /// Логика взаимодействия для WindowEditingListPersonsUsers.xaml
     /// </summary>
     public partial class WindowEditingListPersonsUsers : Window
     {
@@ -27,12 +27,17 @@ namespace Internet_Store
             InitializeComponent();
             persons = new PersonRepository();
             users = new UserRepository();
-            ViewPersons.ItemsSource = persons.GetList();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            persons.GetList();
+            ViewList.ItemsSource = users.GetList();
         }
         
         private void Updating()
         {
-            ViewPersons.ItemsSource = persons.GetList();
+            ViewList.ItemsSource = users.GetList();
         }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
@@ -44,12 +49,13 @@ namespace Internet_Store
 
         private void Button_Click_Del(object sender, RoutedEventArgs e)
         {
-            PersonModel personM = ViewPersons.SelectedItem as PersonModel;
-            if (personM == null) return;
+            UserModel userM = ViewList.SelectedItem as UserModel;
+            if (userM == null) return;
             try
             {
-                persons.Delete(personM.ID);
-                MessageBox.Show($"Удаление записи под номером {personM.ID} прошло успешно", "База данных", MessageBoxButton.OK, MessageBoxImage.Error);
+                users.Delete(userM.ID);
+                persons.Delete(userM.Person.ID);
+                MessageBox.Show($"Удаление записи под номером {userM.ID} прошло успешно", "База данных", MessageBoxButton.OK, MessageBoxImage.Error);
                 Updating();
             }
             catch
@@ -61,43 +67,46 @@ namespace Internet_Store
         private void Button_Click_Upd(object sender, RoutedEventArgs e)
         {
             List<long> success = new List<long>();
-            foreach (PersonModel person in ViewPersons.ItemsSource)
+            foreach (UserModel user in ViewList.ItemsSource)
             {
                 try
                 {
-                    persons.Update(person);
-                    success.Add(person.ID);
+                    users.Update(user);
+                    success.Add(user.ID);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-                    MessageBox.Show($"Дата рождения введена некорректно у записи под номером {person.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Дата рождения введена некорректно у записи под номером {user.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 catch (Exception ex)
                 {
                     if (ex.Message == "Number_Phone")
                     {
-                        MessageBox.Show($"Номер телефона введён некорректно у записи под номером {person.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Номер телефона введён некорректно у записи под номером {user.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else if (ex.Message == "Email")
                     {
-                        MessageBox.Show($"Почта введена некорректно у записи под номером {person.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Почта введена некорректно у записи под номером {user.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else if (ex.Message == "Gender")
                     {
-                        MessageBox.Show($"Некорректно введён пол у записи под номером {person.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Некорректно введён пол у записи под номером {user.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else if (ex.Message == "Name")
                     {
-                        MessageBox.Show($"Некорректно введено поле ФИО у записи под номером {person.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Некорректно введено поле ФИО у записи под номером {user.ID}", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
                     {
-                        MessageBox.Show($"У записи под номером {person.ID} введены данные некорректно", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"У записи под номером {user.ID} введены данные некорректно", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
-            MessageBox.Show($"Сохранение прошло успешно! Сохранённые записи {string.Join(",", success)}", "База данных", MessageBoxButton.OK, MessageBoxImage.Information);
-            Updating();
+            
+            if(success.Count > 0)
+            {
+                MessageBox.Show($"Обновление прошло успешно!\nОбновлённые записи {string.Join(",", success)}.", "База данных", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Updating_Click(object sender, RoutedEventArgs e)

@@ -20,8 +20,6 @@ namespace Infrastructure
         public decimal Price { get; set; }
         
         public long TypeID { get; set; }
-        
-        public decimal SellerID { get; set; }
 
         public virtual List<Custom> Customs { get; set; }
 
@@ -29,6 +27,6 @@ namespace Infrastructure
 
         public virtual List<Review> Reviews { get; set; }
 
-        public virtual List<User> Users { get; set; }
+        public virtual User Seller { get; set; }
     }
 }

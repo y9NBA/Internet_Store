@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Добавление" Height="450" Width="800" ResizeMode="NoResize"
+        Title="Добавление" Height="500" Width="800" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
@@ -40,6 +40,10 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" Margin="25" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Style="{StaticResource Stacks}" Orientation="Vertical">
+                <TextBlock Style="{Binding}" HorizontalAlignment="Center" Text="Роль"/>
+                <ComboBox Name="Role" TextBlock.TextAlignment="Center"/>
+            </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <TextBlock Text="Фамилия"/>
                 <TextBox x:Name="Last_Name"/>

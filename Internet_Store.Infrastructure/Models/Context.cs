@@ -38,10 +38,6 @@ namespace Infrastructure
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Good>()
-                .Property(e => e.SellerID)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Good>()
                 .HasMany(e => e.Custom)
                 .WithRequired(e => e.Good)
                 .WillCascadeOnDelete(false);
@@ -53,6 +49,10 @@ namespace Infrastructure
             modelBuilder.Entity<Person>()
                 .Property(e => e.Number_phone)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Person>()
+                .HasOptional(e => e.User)
+                .WithRequired(e => e.Person);
 
             modelBuilder.Entity<Review>()
                 .Property(e => e.Value)
@@ -79,8 +79,10 @@ namespace Infrastructure
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
-                .HasOptional(e => e.Person)
-                .WithRequired(e => e.User);
+                .HasMany(e => e.Good)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.SellerID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Review)
@@ -92,11 +94,6 @@ namespace Infrastructure
                 .HasMany(e => e.Custom)
                 .WithMany(e => e.User)
                 .Map(m => m.ToTable("Customer").MapLeftKey("UserID").MapRightKey("OrderID"));
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Good)
-                .WithMany(e => e.User)
-                .Map(m => m.ToTable("Seller").MapLeftKey("UserID").MapRightKey("GoodID"));
         }
     }
 }

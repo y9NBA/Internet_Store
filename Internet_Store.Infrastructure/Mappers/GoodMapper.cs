@@ -18,11 +18,10 @@ namespace Infrastructure
                 Amount = entity.Amount,
                 Price = entity.Price,
                 TypeID = entity.TypeID,
-                SellerID = entity.SellerID,
                 Customs = entity.Custom.ToList(),
                 Type = entity.Type,
                 Reviews = entity.Review.ToList(),
-                Users = entity.User.ToList()
+                Seller = entity.User
             };
             return viewModel;
         }
@@ -41,11 +40,10 @@ namespace Infrastructure
                 Amount = entity.Amount,
                 Price = entity.Price,
                 TypeID = entity.TypeID,
-                SellerID = entity.SellerID,
                 Custom = entity.Customs,
                 Type = entity.Type,
                 Review = entity.Reviews,
-                User = entity.Users
+                User = entity.Seller
             };
             return model;
         }

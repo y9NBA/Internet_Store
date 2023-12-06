@@ -12,9 +12,9 @@ namespace Infrastructure
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            Good = new HashSet<Good>();
             Review = new HashSet<Review>();
             Custom = new HashSet<Custom>();
-            Good = new HashSet<Good>();
         }
 
         public long ID { get; set; }
@@ -29,6 +29,9 @@ namespace Infrastructure
 
         public long RoleID { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Good> Good { get; set; }
+
         public virtual Person Person { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -38,8 +41,5 @@ namespace Infrastructure
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Custom> Custom { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Good> Good { get; set; }
     }
 }

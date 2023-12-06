@@ -68,6 +68,7 @@
     <Compile Include="Consts\Quest.cs" />
     <Compile Include="DataBase\GoodRepository.cs" />
     <Compile Include="DataBase\PersonRepository.cs" />
+    <Compile Include="DataBase\RoleRepository.cs" />
     <Compile Include="Mappers\CustomMapper.cs" />
     <Compile Include="Mappers\DiscountMapper.cs" />
     <Compile Include="Mappers\GoodMapper.cs" />

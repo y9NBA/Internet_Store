@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Регистрация" Height="500" Width="800" ResizeMode="NoResize"
+        Title="Регистрация" Height="520" Width="800" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
@@ -40,6 +40,10 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" Margin="50" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Style="{StaticResource Stacks}" Orientation="Vertical">
+                <TextBlock Style="{Binding}" HorizontalAlignment="Center" Text="Роль"/>
+                <ComboBox Name="Role" TextBlock.TextAlignment="Center"/>
+            </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <TextBlock Text="Фамилия"/>
                 <TextBox x:Name="Last_Name"/>
@@ -70,13 +74,13 @@
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}" >
                 <TextBlock FontSize="10">
-                    Подтверждение<LineBreak/>пароля
+        Подтверждение<LineBreak/>пароля
                 </TextBlock>
                 <PasswordBox x:Name="PasswordCheck"/>
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <Button x:Name="Register"
-                        Width="130"
+                        Width="160"
                         BorderThickness="1"
                         Margin="10"
                         FontSize="10"
