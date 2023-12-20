@@ -14,14 +14,17 @@
                     Click="Cancel_Click">
                 <Image Source="\Pictures\Circle_Arrow_Back.png" />
             </Button>
-            <DataGrid x:Name="Goods" IsReadOnly="True">
+            <DataGrid x:Name="Goods" IsEnabled="True" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
-                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" MaxWidth="150"/>
+                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}" MaxWidth="175"/>
                     <DataGridTextColumn Header="Количество" Binding="{Binding Amount}"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+        <Button x:Name="Information" Content="Подробнее о товаре"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                Margin="10" Click="Information_Click"/>
     </Grid>
 </Window>

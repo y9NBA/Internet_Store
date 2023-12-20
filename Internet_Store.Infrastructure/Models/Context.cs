@@ -79,6 +79,12 @@ namespace Infrastructure
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
+                .HasMany(e => e.Custom)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.CustomerID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
                 .HasMany(e => e.Good)
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.SellerID)
@@ -89,11 +95,6 @@ namespace Infrastructure
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.CustomerID)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Custom)
-                .WithMany(e => e.User)
-                .Map(m => m.ToTable("Customer").MapLeftKey("UserID").MapRightKey("OrderID"));
         }
     }
 }

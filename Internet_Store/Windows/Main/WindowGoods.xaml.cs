@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,14 @@ namespace Internet_Store.Windows.Main
     /// </summary>
     public partial class WindowGoods : Window
     {
+        private GoodRepository goods;
         public WindowGoods()
         {
             InitializeComponent();
+
+            goods = new GoodRepository();
+
+            Goods.ItemsSource = goods.GetList(); 
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -29,6 +35,25 @@ namespace Internet_Store.Windows.Main
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.ShowDialog();
+        }
+
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            GoodModel good = Goods.SelectedItem as GoodModel;
+
+            if(good == null)
+            {
+                MessageBox.Show("Вы не выбрали товар", "Store", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            else
+            {
+                CurrentGood.Good = GoodMapper.Map(good);
+
+                WindowGoodView windowGoodView = new WindowGoodView();
+                this.Close();
+                windowGoodView.ShowDialog();
+            }
         }
     }
 }

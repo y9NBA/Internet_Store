@@ -27,18 +27,18 @@
         </Button>
         <StackPanel x:Name="Button_Customer" Style="{StaticResource Stack_Button}">
             <Button Content="Товары" Click="Goods_Click"/>
-            <Button Content="Корзина"/>
-            <Button Content="Профиль"/>
+            <Button Content="Корзина" Click="Order_Click"/>
+            <Button Content="Профиль" Click="Profile_Click"/>
         </StackPanel>
         <StackPanel x:Name="Button_Admin" Style="{StaticResource Stack_Button}">
             <Button Content="Список товаров" Click="Goods_Click"/>
             <Button Content="Список пользователей" Click="Editing_Users_Click"/>
-            <Button Content="Профиль"/>
+            <Button Content="Профиль" Click="Profile_Click"/>
         </StackPanel>
         <StackPanel x:Name="Button_Seller" Style="{StaticResource Stack_Button}">
             <Button Content="Товары" Click="Goods_Click"/>
             <Button Content="Мои товары"/>
-            <Button Content="Профиль"/>
+            <Button Content="Профиль" Click="Profile_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    internal static class GoodMapper
+    public static class GoodMapper
     {
         public static GoodModel Map(Good entity)
         {

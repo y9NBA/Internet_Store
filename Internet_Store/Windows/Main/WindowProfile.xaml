@@ -1,13 +1,15 @@
-﻿<Window x:Class="Internet_Store.WindowRegister"
+﻿<Window x:Class="Internet_Store.WindowProfile"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Регистрация" Height="550" Width="800" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
-    
+        Title="WindowProfile" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded">
+
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBoxBase}">
             <Setter Property="TextBox.Width" Value="120"/>
@@ -37,12 +39,21 @@
             <Setter Property="Control.Margin" Value="0,0,0,10"/>
         </Style>
     </Window.Resources>
-
+    
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="50" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Style="{StaticResource Stacks}">
+                <Button Style="{StaticResource MaterialDesignToolForegroundButton}" 
+                        Click="Cancel_Click">
+                    <Image Source="\Pictures\Circle_Arrow_Back.png"/>
+                </Button>
+            </StackPanel>
             <StackPanel Style="{StaticResource Stacks}" Orientation="Vertical">
-                <TextBlock Name="Role_txt" Style="{Binding}" HorizontalAlignment="Center" Text="Роль"/>
-                <ComboBox Name="Role" TextBlock.TextAlignment="Center"/>
+                <TextBlock Name="Role_txt" Style="{Binding}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource Stacks}">
+                <TextBlock Text="Логин"/>
+                <TextBox x:Name="Login"/>
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <TextBlock Text="Фамилия"/>
@@ -59,51 +70,31 @@
             <StackPanel Style="{StaticResource Stacks}">
                 <TextBlock Text="Номер"/>
                 <TextBox x:Name="Number_Phone"/>
+                <TextBlock Margin="30,0,0,0" Text="Почта"/>
+                <TextBox x:Name="Email"/>
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <TextBlock Text="Пол"/>
                 <ComboBox x:Name="Gender"/>
+                <TextBlock Margin="30,0,0,0" FontSize="10" Text="Дата рождения"/>
+                <TextBox x:Name="Birthday"/>
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
-                <TextBlock Text="Логин"/>
-                <TextBox x:Name="Login"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource Stacks}">
-                <TextBlock Text="Пароль"/>
+                <TextBlock FontSize="10" Text="Новый пароль"/>
                 <PasswordBox x:Name="Password"/>
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}" >
                 <TextBlock FontSize="10">
-        Подтверждение<LineBreak/>пароля
+                    Подтверждение<LineBreak/>пароля
                 </TextBlock>
                 <PasswordBox x:Name="PasswordCheck"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource Stacks}">
-                <Button x:Name="Register"
-                        Width="160"
-                        BorderThickness="1"
-                        Margin="0,10,0,0"
-                        FontSize="10"
-                        Content="Зарегистрироваться"
-                        Click="Register_Click"
-                        Background="DarkTurquoise"
-                        />
-                <Button x:Name="Add"
-                        Width="130"
-                        BorderThickness="1"
-                        Margin="0,10,0,0"
-                        FontSize="10"
-                        Content="Добавить"
-                        Click="Register_Click"
-                        Background="DarkTurquoise"
-                        />
+            <StackPanel Margin="0,10" Style="{StaticResource Stacks}">
+                <Button Name="Save" Width="110" Margin="0,0,5,0" Content="Сохранить"
+                        Click="Save_Click"/>
+                <Button Name="Canc" Width="110" Margin="5,0,0,0" Content="Отмена"
+                        Click="Canc_Click"/>
             </StackPanel>
-        </StackPanel>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
-            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" 
-                    Click="Cancel_Click">
-                <Image Source="\Pictures\Circle_Arrow_Back.png"/>
-            </Button>
         </StackPanel>
     </Grid>
 </Window>

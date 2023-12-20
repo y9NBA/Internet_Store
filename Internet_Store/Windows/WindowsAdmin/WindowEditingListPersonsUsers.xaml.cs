@@ -42,9 +42,9 @@ namespace Internet_Store
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            WindowAddPersonUser windowAddPersonUser = new WindowAddPersonUser();
+            WindowRegister windowRegister = new WindowRegister();
             this.Close();
-            windowAddPersonUser.ShowDialog();
+            windowRegister.ShowDialog();
         }
 
         private void Button_Click_Del(object sender, RoutedEventArgs e)
