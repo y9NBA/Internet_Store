@@ -64,11 +64,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consts\CurrentGood.cs" />
     <Compile Include="Consts\CurrentUser.cs" />
     <Compile Include="Consts\Quest.cs" />
+    <Compile Include="DataBase\CustomRepository.cs" />
     <Compile Include="DataBase\GoodRepository.cs" />
     <Compile Include="DataBase\PersonRepository.cs" />
     <Compile Include="DataBase\RoleRepository.cs" />
+    <Compile Include="DataBase\StatusRepository.cs" />
+    <Compile Include="DataBase\TypeRepository.cs" />
     <Compile Include="Mappers\CustomMapper.cs" />
     <Compile Include="Mappers\DiscountMapper.cs" />
     <Compile Include="Mappers\GoodMapper.cs" />

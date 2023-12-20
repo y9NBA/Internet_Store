@@ -1,0 +1,62 @@
+﻿<Window x:Class="Internet_Store.WindowGoodView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Internet_Store.Windows.Main"
+        mc:Ignorable="d"
+        Title="Подробнее о товаре" Height="450" Width="800"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <Button Margin="0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Style="{StaticResource MaterialDesignToolForegroundButton}"
+                    Click="Cancel_Click">
+                <Image Source="\Pictures\Circle_Arrow_Back.png" />
+            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Название:"/>
+                <TextBlock Name="Name_Good" MinWidth="130" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Категории товара:"/>
+                <TextBlock Name="Type" MinWidth="130"/>    
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Описание:"/>
+                <TextBlock Name="Description" MinHeight="50" TextAlignment="Justify" MaxWidth="500" MaxHeight="150" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="В наличии:"/>
+                <TextBlock Name="Amount"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Цена за единицу:"/>
+                <TextBlock Name="Price"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Количество приобретаемого товара:" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox Name="Total_Amount"
+                             SelectionChanged="Total_Amount_SelectionChanged"
+                             MinWidth="50"/>
+                    <StackPanel Orientation="Vertical">
+                        <Button x:Name="Button_Incr" Click="Add_1_Total_Amount" Content="+" Width="20" Height="25"
+                                Style="{StaticResource MaterialDesignToolButton}"/>
+                        <Button x:Name="Button_Decr" Click="Remove_1_Total_Amount" Content="-" Width="20" Height="25" 
+                                Style="{StaticResource MaterialDesignToolButton}"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button x:Name="Button_Buy_Good" Margin="10,20,10,0" 
+                        Click="Button_Buy_Good_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

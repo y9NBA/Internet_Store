@@ -60,10 +60,11 @@ namespace Infrastructure
                 Middle_name = Regex.IsMatch(entity.Middle_name, @"^[а-яА-я]+$") == true ? entity.Middle_name.Trim() : throw new Exception("Name"),
                 Gender = entity.Gender == "мужской" ? "м" : entity.Gender == "женский" ? "ж" : throw new Exception("Gender"),
                 Birthday = entity.Birthday == "" ? new DateTime() : ConvertData(),
-                Number_phone = Regex.IsMatch(entity.Number_phone, @"\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}") == true ? entity.Number_phone : throw new Exception("Number_Phone"),
+                Number_phone = Regex.IsMatch(entity.Number_phone, @"\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}") == true 
+                            ? entity.Number_phone : throw new Exception("Number_Phone"),
                 Email = entity.Email == "" 
                             ? "" : Regex.IsMatch(entity.Email, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$") == true 
+                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$") == true
                             ? entity.Email : throw new Exception("Email"),
                 DiscountID = entity.DiscountID,
                 User = entity.User

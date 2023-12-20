@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    internal static class CustomMapper
+    public static class CustomMapper
     {
         public static CustomModel Map(Custom entity)
         {
@@ -16,11 +16,14 @@ namespace Infrastructure
             {
                 ID = entity.ID,
                 Date_Order = entity.Date_Order,
+                StatusID = entity.StatusID,
+                GoodID = entity.GoodID,
+                CustomerID = entity.CustomerID,
                 Status = entity.Status,
                 Good = entity.Good,
+                User = entity.User,
                 Total_Amount = entity.Total_Amount,
-                Total_Price = entity.Total_Price,
-                User = entity.User.ToList()
+                Total_Price = entity.Total_Price
             };
             return viewModel;
         }
@@ -35,6 +38,9 @@ namespace Infrastructure
             {
                 ID = entity.ID,
                 Date_Order = entity.Date_Order,
+                StatusID = entity.StatusID,
+                GoodID = entity.GoodID,
+                CustomerID = entity.CustomerID,
                 Status = entity.Status,
                 Good = entity.Good,
                 Total_Amount = entity.Total_Amount,

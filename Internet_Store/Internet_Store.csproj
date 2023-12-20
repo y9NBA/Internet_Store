@@ -87,11 +87,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\Main\WindowProfile.xaml.cs">
+      <DependentUpon>WindowProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Main\WindowGoods.xaml.cs">
       <DependentUpon>WindowGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Main\WindowGoodView.xaml.cs">
+      <DependentUpon>WindowGoodView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WindowsAdmin\WindowAddPersonUser.xaml.cs">
       <DependentUpon>WindowAddPersonUser.xaml</DependentUpon>
@@ -118,11 +124,19 @@
     <Compile Include="Windows\WindowsCustomer\WindowEditingOrder.xaml.cs">
       <DependentUpon>WindowEditingOrder.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\Main\WindowProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Main\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Main\WindowGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Main\WindowGoodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

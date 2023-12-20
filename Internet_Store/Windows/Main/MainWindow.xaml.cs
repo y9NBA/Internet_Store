@@ -68,5 +68,19 @@ namespace Internet_Store
             this.Close();
             windowGoods.ShowDialog();
         }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+            WindowEditingOrder windowEditingOrder = new WindowEditingOrder();
+            this.Close();
+            windowEditingOrder.ShowDialog();
+        }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            WindowProfile windowProfile = new WindowProfile();
+            this.Close();
+            windowProfile.ShowDialog();
+        }
     }
 }

@@ -30,8 +30,21 @@ namespace Internet_Store
             InitializeComponent();
             users = new UserRepository();
             persons = new PersonRepository();
+            roles = new RoleRepository();
+
             Gender.ItemsSource = new List<string>() { "мужской", "женский" };
-            Role.ItemsSource = roles.GetList().Where(i => i.ID < 3).ToList();
+
+            if (CurrentUser.User == null)
+            {
+                Add.Visibility = Visibility.Collapsed;
+                Role.ItemsSource = roles.GetList().Where(i => i.Name_Role != "Админ").Select(i => i.Name_Role);
+                Role_txt.Text = "Вы регистрируйтесь как:";
+            }
+            else if (CurrentUser.Role == "Админ")
+            {
+                Register.Visibility = Visibility.Collapsed;
+                Role.ItemsSource = roles.GetList().Select(i => i.Name_Role);
+            }
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
@@ -57,18 +70,39 @@ namespace Internet_Store
                             ? Login.Text
                             : throw new Exception("LoginInCorrect")
                             : throw new Exception("Login"),
-                    Password = Password.Password == PasswordCheck.Password && Password.Password != string.Empty ? Password.Password : throw new Exception("Password"),
+                    Password = Password.Password == PasswordCheck.Password && Password.Password != string.Empty 
+                               ? Regex.IsMatch(Password.Password, "(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*") 
+                               ? Password.Password 
+                               : throw new Exception("Password") 
+                               : throw new Exception("PasswordInCorrect"),
                     RoleID = Role.Text != string.Empty
                             ? roles.GetByName(Role.Text).ID
                             : throw new Exception("Role")
                 };
                 users.Add(userM);
 
-                MessageBox.Show("Регистрация прошла успешно! Вы будете перенесены на вход", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (CurrentUser.User == null)
+                {
+                    MessageBox.Show("Регистрация прошла успешно! Вы будете перенесены на вход", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                WindowAuth windowAuth = new WindowAuth();
-                this.Close();
-                windowAuth.ShowDialog();
+                    WindowAuth windowAuth = new WindowAuth();
+                    this.Close();
+                    windowAuth.ShowDialog();
+                }
+                else if (CurrentUser.Role == "Админ") 
+                {
+                    if(MessageBox.Show("Добавление прошло успешно\nОчистить поля ввода?", "База данных", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No) == MessageBoxResult.Yes)
+
+                    Role.Text = string.Empty;
+                    Last_Name.Text = string.Empty;
+                    First_Name.Text = string.Empty;
+                    Middle_Name.Text = string.Empty;
+                    Number_Phone.Text = string.Empty;
+                    Gender.Text = string.Empty;
+                    Login.Text = string.Empty;
+                    Password.Password = string.Empty;
+                    PasswordCheck.Password = string.Empty;
+                }                
             }
             catch (Exception ex)
             {
@@ -85,6 +119,9 @@ namespace Internet_Store
                         break;
                     case "Password":
                         MessageBox.Show("Введённые пароли не совпадают", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Stop);
+                        break;
+                    case "PasswordInCorrect":
+                        MessageBox.Show("Ваш пароль должен содержать минимум 8 символов, одну цифру, одну букву верхнего и нижнего регистров", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Stop);
                         break;
                     case "Number_Phone":
                         MessageBox.Show("Номер телефона заполнен некорректно", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Stop);
@@ -104,9 +141,18 @@ namespace Internet_Store
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            WindowAuth windowAuth = new WindowAuth();
-            this.Close();
-            windowAuth.ShowDialog();
+            if (CurrentUser.User == null)
+            {
+                WindowAuth windowAuth = new WindowAuth();
+                this.Close();
+                windowAuth.ShowDialog();
+            }
+            else if (CurrentUser.Role == "Админ") 
+            {
+                WindowEditingListPersonsUsers windowEditingListPersonsUsers = new WindowEditingListPersonsUsers();
+                this.Close();
+                windowEditingListPersonsUsers.ShowDialog();
+            }
         }
     }
 }

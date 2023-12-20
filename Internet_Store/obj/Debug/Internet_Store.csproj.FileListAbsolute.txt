@@ -102,3 +102,7 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_S
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_Store.csproj.CopyComplete
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_Store.exe
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_Store.pdb
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoodView.g.cs
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoodView.baml
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowProfile.g.cs
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowProfile.baml
