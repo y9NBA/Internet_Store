@@ -32,17 +32,20 @@ namespace Internet_Store.Windows.WindowsSeller
             goods = new GoodRepository();
             types = new TypeRepository();
             users = new UserRepository();
-            
-            if(CurrentUser.Role == "Продавец")
+
+            var sellers = users.GetList().Where(i => i.Role.Name_Role == "Продавец").ToList();
+
+            if (CurrentUser.Role == "Продавец")
             {
                 Seller.Visibility = Visibility.Collapsed;
                 Author.Visibility = Visibility.Collapsed;
-                Seller.ItemsSource = users.GetList().Where(i => i.ID == CurrentUser.User.ID);
+                Seller.ItemsSource = sellers.Where(i => CurrentUser.User.ID == i.ID);
                 Seller.SelectedIndex = 0;
             }
             if(CurrentUser.Role == "Админ")
             {
-                Seller.ItemsSource = users.GetList().Where(i => i.Role.Name_Role == "Продавец");
+                Seller.ItemsSource = sellers;
+                Seller.SelectedIndex = sellers.FindIndex(i => i.ID == CurrentGood.Good.SellerID);
             }
             if(CurrentGood.isEditing == true)
             {
@@ -122,6 +125,7 @@ namespace Internet_Store.Windows.WindowsSeller
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            CurrentGood.Good = null;
             CurrentGood.isEditing = false;
 
             WindowEditingGood windowEditingGood = new WindowEditingGood();
@@ -137,6 +141,7 @@ namespace Internet_Store.Windows.WindowsSeller
                     if (MessageBox.Show("Товар успешно обновлён\nВернуться к списку товаров?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No) == MessageBoxResult.Yes)
                     {
                         CurrentGood.isEditing = false;
+                        CurrentGood.Good = null;
 
                         WindowEditingGood windowEditingGood = new WindowEditingGood();
                         this.Close();

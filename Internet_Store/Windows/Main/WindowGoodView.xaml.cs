@@ -50,6 +50,7 @@ namespace Internet_Store
             Name_Good.Text = CurrentGood.Good.Name;
             Type.Text = CurrentGood.Good.Type.Name_Type;
             Description.Text = CurrentGood.Good.Description;
+            Seller.Text = CurrentGood.Good.User.Login;
             Amount.Text = CurrentGood.Good.Amount.ToString();
             Price.Text = CurrentGood.Good.Price.ToString();
             Total_Amount.Text = "1";
@@ -109,6 +110,7 @@ namespace Internet_Store
         {
             if (CurrentGood.isOrder == true)
             {
+                CurrentGood.Good = null;
                 CurrentGood.isOrder = false;
 
                 WindowEditingOrder windowEditingOrder = new WindowEditingOrder();
@@ -117,6 +119,7 @@ namespace Internet_Store
             }
             else if (CurrentGood.isEditing == true)
             {
+                CurrentGood.Good = null;
                 CurrentGood.isEditing = false;
 
                 WindowEditingGood windowEditingGood = new WindowEditingGood();
@@ -125,6 +128,8 @@ namespace Internet_Store
             }
             else
             {
+                CurrentGood.Good = null;
+
                 WindowGoods windowGoods = new WindowGoods();
                 this.Close();
                 windowGoods.ShowDialog();

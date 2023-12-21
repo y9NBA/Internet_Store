@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Internet_Store.Windows.WindowsSeller"
         mc:Ignorable="d"
         Title="Добавление товара" Height="500" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen">
@@ -66,7 +67,7 @@
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <TextBlock x:Name="Author" Text="Производитель"/>
-                <ComboBox x:Name="Seller"/>
+                <ComboBox x:Name="Seller" DisplayMemberPath="Login"/>
             </StackPanel>
             <StackPanel Style="{StaticResource Stacks}">
                 <Button x:Name="Register"

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Добавление" Height="500" Width="800" ResizeMode="NoResize"
+        Title="Добавление пользователя" Height="500" Width="800" 
+        Icon="\Pictures\Store_Icon.ico"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     
     <Window.Resources>

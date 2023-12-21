@@ -40,12 +40,6 @@ namespace Internet_Store
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            if (Login.Text == "" && Password.Password == "")
-            {
-                Login.Text = "Admin";
-                Password.Password = "Admin";
-            }
-
             CurrentUser.User = users.GetList().Where(i => i.Login == Login.Text && i.Password == Password.Password).FirstOrDefault();
             if(CurrentUser.User != null)
             {

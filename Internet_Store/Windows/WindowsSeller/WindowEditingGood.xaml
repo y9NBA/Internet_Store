@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
         Title="Товары" Height="500" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
@@ -30,10 +31,16 @@
                         <DataGridTextColumn Header="Цена за ед" Binding="{Binding Price}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button HorizontalAlignment="Right" Margin="5" VerticalAlignment="Top" 
-                BorderThickness="0" Width="50" Background="White" Click="Updating_Click">
-                    <Image Source="\Pictures\Arrow_Back.png"/>
-                </Button>
+                <StackPanel Orientation="Vertical">
+                    <Button HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" 
+                            BorderThickness="0" Width="50" Background="White" Click="Updating_Click">
+                        <Image Source="\Pictures\Arrow_Back.png"/>
+                    </Button>
+                    <ComboBox x:Name="Types"
+                          VerticalAlignment="Top" Margin="10" MinWidth="100" MaxWidth="150"
+                          SelectionChanged="Types_SelectionChanged"
+                          DisplayMemberPath="Name_Type"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">

@@ -21,13 +21,16 @@ namespace Internet_Store.Windows.Main
     public partial class WindowGoods : Window
     {
         private GoodRepository goods;
+        private TypeRepository types;
         public WindowGoods()
         {
             InitializeComponent();
 
             goods = new GoodRepository();
+            types = new TypeRepository();
 
             Goods.ItemsSource = goods.GetList(); 
+            Types.ItemsSource = types.GetList();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -54,6 +57,23 @@ namespace Internet_Store.Windows.Main
                 this.Close();
                 windowGoodView.ShowDialog();
             }
+        }
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            Types.SelectedIndex = -1;
+        }
+
+        private void Types_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Infrastructure.Type type = Types.SelectedItem as Infrastructure.Type;
+
+            if (type == null)
+            {
+                Goods.ItemsSource = goods.GetList();
+                return;
+            }
+
+            Goods.ItemsSource = goods.GetList().Where(i => i.TypeID == type.ID);
         }
     }
 }

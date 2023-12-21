@@ -74,7 +74,6 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\bin\Debug\Microsoft.
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\bin\Debug\System.Data.SQLite.xml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_Store.csproj.AssemblyReference.cache
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\MainWindow.g.cs
-C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoods.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowAddPersonUser.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowAuth.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowRegister.g.cs
@@ -86,7 +85,6 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_S
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Internet_Store_MarkupCompile.lref
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\App.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\MainWindow.baml
-C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoods.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowAddPersonUser.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowAuth.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowRegister.baml
@@ -106,3 +104,5 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Ma
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowProfile.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowAddGood.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowAddGood.baml
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsCustomer\WindowGoods.g.cs
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsCustomer\WindowGoods.baml

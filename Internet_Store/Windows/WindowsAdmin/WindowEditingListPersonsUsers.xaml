@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Список пользователей" MinHeight="450" MinWidth="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Title="Список пользователей" MinHeight="450" MinWidth="900" 
+        Icon="\Pictures\Store_Icon.ico"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Loaded="Window_Loaded">
 
     <Grid>

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
         Title="Авторизация" Height="450" Width="500" Icon="\Pictures\Store_Icon.ico"
+        ResizeMode="NoResize"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen">
     

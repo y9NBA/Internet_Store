@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="Регистрация" Height="550" Width="800" ResizeMode="NoResize"
+        Title="Регистрация" Height="550" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
