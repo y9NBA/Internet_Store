@@ -44,14 +44,25 @@ namespace Internet_Store
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Хотите выйти из аккаунта?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+            switch (Quest.IsAuth)
             {
-                CurrentUser.User = null;
-                CurrentUser.Role = null;
+                case true:
+                    Quest.IsAuth = false;
+                    WindowAuth windowAuth = new WindowAuth();
+                    this.Close();
+                    windowAuth.ShowDialog();
+                    break;
+                case false:
+                    if (MessageBox.Show("Хотите выйти из аккаунта?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+                    {
+                        CurrentUser.User = null;
+                        CurrentUser.Role = "Покупатель";
 
-                WindowAuth windowAuth = new WindowAuth();
-                this.Close();
-                windowAuth.ShowDialog();
+                        WindowAuth windowAuth0 = new WindowAuth();
+                        this.Close();
+                        windowAuth0.ShowDialog();
+                    }
+                    break;
             }
         }
 
@@ -71,16 +82,39 @@ namespace Internet_Store
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-            WindowEditingOrder windowEditingOrder = new WindowEditingOrder();
-            this.Close();
-            windowEditingOrder.ShowDialog();
+            switch (Quest.IsAuth)
+            {
+                case true:
+                    MessageBox.Show("Недоступно, надо авторизоваться", "Store", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    break;
+                case false:
+                    WindowEditingOrder windowEditingOrder = new WindowEditingOrder();
+                    this.Close();
+                    windowEditingOrder.ShowDialog();
+                    break;
+            }
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            WindowProfile windowProfile = new WindowProfile();
+            switch (Quest.IsAuth)
+            {
+                case true:
+                    MessageBox.Show("Недоступно, надо авторизоваться", "Store", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    break;
+                case false:
+                    WindowProfile windowProfile = new WindowProfile();
+                    this.Close();
+                    windowProfile.ShowDialog();
+                    break;
+            }
+        }
+
+        private void Editing_Goods_Click(object sender, RoutedEventArgs e)
+        {
+            WindowEditingGood windowEditingGood = new WindowEditingGood();
             this.Close();
-            windowProfile.ShowDialog();
+            windowEditingGood.ShowDialog();
         }
     }
 }

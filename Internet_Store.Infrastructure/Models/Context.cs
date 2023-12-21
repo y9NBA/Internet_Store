@@ -35,7 +35,7 @@ namespace Infrastructure
 
             modelBuilder.Entity<Good>()
                 .Property(e => e.Price)
-                .HasPrecision(18, 0);
+                .HasPrecision(128, 0);
 
             modelBuilder.Entity<Good>()
                 .HasMany(e => e.Custom)
