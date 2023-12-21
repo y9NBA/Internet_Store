@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,12 +32,13 @@ namespace Internet_Store
             users = new UserRepository();
             customs = new CustomRepository();
 
-            if(CurrentGood.isOrder == true)
+            if(CurrentGood.isOrder == true || Quest.IsAuth == true || CurrentGood.isEditing == true)
             {
                 Total_Amount.Visibility = Visibility.Collapsed;
                 Button_Buy_Good.Visibility = Visibility.Collapsed;
                 Button_Incr.Visibility = Visibility.Collapsed;
                 Button_Decr.Visibility = Visibility.Collapsed;
+                Amount_Label.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -58,7 +60,7 @@ namespace Internet_Store
             if (long.TryParse(Total_Amount.Text, out long total_amount) == false)
             {
                 MessageBox.Show("Можно вводить только цифры", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
-                Total_Amount.Text = "1";
+                Total_Amount.Text = Regex.Replace(Total_Amount.Text, "[^0-9.]", ""); ;
             }
             else
             {
@@ -96,7 +98,6 @@ namespace Internet_Store
                 StatusID = 1,
                 GoodID = CurrentGood.Good.ID,
                 CustomerID = CurrentUser.User.ID
-                //User = UserMapper.Map(CurrentUser.User)
             };
 
             customs.Add(custom);
@@ -106,13 +107,7 @@ namespace Internet_Store
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            if(CurrentGood.isOrder == false)
-            {
-                WindowGoods windowGoods = new WindowGoods();
-                this.Close();
-                windowGoods.ShowDialog();
-            }
-            else if(CurrentGood.isOrder == true)
+            if (CurrentGood.isOrder == true)
             {
                 CurrentGood.isOrder = false;
 
@@ -120,6 +115,21 @@ namespace Internet_Store
                 this.Close();
                 windowEditingOrder.ShowDialog();
             }
+            else if (CurrentGood.isEditing == true)
+            {
+                CurrentGood.isEditing = false;
+
+                WindowEditingGood windowEditingGood = new WindowEditingGood();
+                this.Close();
+                windowEditingGood.ShowDialog();
+            }
+            else
+            {
+                WindowGoods windowGoods = new WindowGoods();
+                this.Close();
+                windowGoods.ShowDialog();
+            }
+            
         }
     }
 }

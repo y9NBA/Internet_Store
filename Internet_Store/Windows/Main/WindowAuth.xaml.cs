@@ -42,8 +42,8 @@ namespace Internet_Store
         {
             if (Login.Text == "" && Password.Password == "")
             {
-                Login.Text = "Customer";
-                Password.Password = "Customer";
+                Login.Text = "Admin";
+                Password.Password = "Admin";
             }
 
             CurrentUser.User = users.GetList().Where(i => i.Login == Login.Text && i.Password == Password.Password).FirstOrDefault();
@@ -68,6 +68,11 @@ namespace Internet_Store
             if(MessageBox.Show($"Вы уверены, что хотите войти как гость?", "Store", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 MessageBox.Show($"Вы вошли как гость\nВам будут недоступны некоторые функции", "Store", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                Quest.IsAuth = true;
+
+                MainWindow mainWindow = new MainWindow();
+                this.Close();
+                mainWindow.ShowDialog();
             }
         }
 

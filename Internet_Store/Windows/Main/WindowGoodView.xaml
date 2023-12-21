@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store.Windows.Main"
         mc:Ignorable="d"
-        Title="Подробнее о товаре" Height="450" Width="800"
+        Title="Подробнее о товаре" Height="500" Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
 
     <Window.Resources>
@@ -31,7 +33,8 @@
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <Label Content="Описание:"/>
-                <TextBlock Name="Description" MinHeight="50" TextAlignment="Justify" MaxWidth="500" MaxHeight="150" HorizontalAlignment="Center"/>
+                <TextBlock Name="Description" MinHeight="50" TextAlignment="Justify" MaxWidth="500" MaxHeight="150" HorizontalAlignment="Center"
+                           TextWrapping="Wrap"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="В наличии:"/>
@@ -42,7 +45,7 @@
                 <TextBlock Name="Price"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Label Content="Количество приобретаемого товара:" HorizontalAlignment="Left"/>
+                <Label Name="Amount_Label" Content="Количество приобретаемого товара:" HorizontalAlignment="Left"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBox Name="Total_Amount"
                              SelectionChanged="Total_Amount_SelectionChanged"

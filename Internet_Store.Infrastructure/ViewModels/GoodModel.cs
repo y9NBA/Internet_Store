@@ -20,6 +20,7 @@ namespace Infrastructure
         public decimal Price { get; set; }
         
         public long TypeID { get; set; }
+        public long SellerID { get; set; }
 
         public virtual List<Custom> Customs { get; set; }
 

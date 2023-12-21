@@ -10,5 +10,6 @@ namespace Infrastructure
     {
         public static Good Good { get; set; } = null;
         public static bool isOrder {  get; set; } = false;
+        public static bool isEditing { get; set;} = false;
     }
 }

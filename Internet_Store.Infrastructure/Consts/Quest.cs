@@ -8,8 +8,6 @@ namespace Infrastructure
 {
     public static class Quest
     {
-        public static string UserName { get; } = "Гость";
-        public static long RoleID { get; } = 1;
-        public static string RoleName { get; } = "Гость";
+        public static Boolean IsAuth { get; set; } = false; 
     }
 }

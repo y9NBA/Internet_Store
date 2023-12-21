@@ -78,7 +78,6 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Ma
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowAddPersonUser.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowAuth.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowRegister.g.cs
-C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowCabinet.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowEditingGood.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowEditingListPersonsUsers.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsCustomer\WindowEditingOrder.g.cs
@@ -91,7 +90,6 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Ma
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowAddPersonUser.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowAuth.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowRegister.baml
-C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowCabinet.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowEditingGood.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsAdmin\WindowEditingListPersonsUsers.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsCustomer\WindowEditingOrder.baml
@@ -106,3 +104,5 @@ C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Ma
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowGoodView.baml
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowProfile.g.cs
 C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\Main\WindowProfile.baml
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowAddGood.g.cs
+C:\Users\User\#\#ClassProject\Internet_Store\Internet_Store\obj\Debug\Windows\WindowsSeller\WindowAddGood.baml

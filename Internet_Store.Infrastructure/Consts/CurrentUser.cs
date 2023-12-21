@@ -9,6 +9,6 @@ namespace Infrastructure
     public static class CurrentUser
     {
         public static UserModel User { get; set; } = null;
-        public static string Role { get; set; } = null;
+        public static string Role { get; set; } = "Покупатель";
     }
 }

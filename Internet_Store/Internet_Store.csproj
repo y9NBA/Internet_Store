@@ -108,8 +108,8 @@
     <Compile Include="Windows\Main\WindowRegister.xaml.cs">
       <DependentUpon>WindowRegister.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Main\WindowCabinet.xaml.cs">
-      <DependentUpon>WindowCabinet.xaml</DependentUpon>
+    <Compile Include="Windows\WindowsSeller\WindowAddGood.xaml.cs">
+      <DependentUpon>WindowAddGood.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\WindowsSeller\WindowEditingGood.xaml.cs">
       <DependentUpon>WindowEditingGood.xaml</DependentUpon>
@@ -152,7 +152,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Main\WindowCabinet.xaml">
+    <Page Include="Windows\WindowsSeller\WindowAddGood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
