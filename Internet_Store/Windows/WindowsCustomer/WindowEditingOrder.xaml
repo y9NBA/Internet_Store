@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="WindowEditingOrder" Height="450" Width="800"
+        Title="Корзина-Заказы" Height="500" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
     
     <Grid>
@@ -30,7 +33,6 @@
             <Button x:Name="Information" Content="Подробнее о товаре"
                     HorizontalAlignment="Center" VerticalAlignment="Bottom"
                     Margin="10" Click="Information_Click"/>
-            <Button Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>

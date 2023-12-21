@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
-        Title="WindowProfile" Height="500" Width="800"
+        Title="Профиль" Height="500" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Loaded="Window_Loaded">

@@ -20,20 +20,12 @@ namespace Internet_Store
     /// </summary>
     public partial class WindowEditingOrder : Window
     {
-        private UserRepository users;
-        private GoodRepository goods;
-        private StatusRepository status;
-        private TypeRepository types;
         private CustomRepository custom;
 
         public WindowEditingOrder()
         {
             InitializeComponent();
 
-            users = new UserRepository();
-            status = new StatusRepository();
-            types = new TypeRepository();
-            goods = new GoodRepository();
             custom = new CustomRepository();
         }
 
@@ -67,11 +59,6 @@ namespace Internet_Store
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Orders.ItemsSource = custom.GetList().Where(i => i.CustomerID == CurrentUser.User.ID);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

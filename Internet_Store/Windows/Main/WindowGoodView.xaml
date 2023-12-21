@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Internet_Store.Windows.Main"
         mc:Ignorable="d"
         Title="Подробнее о товаре" Height="500" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
@@ -35,6 +36,10 @@
                 <Label Content="Описание:"/>
                 <TextBlock Name="Description" MinHeight="50" TextAlignment="Justify" MaxWidth="500" MaxHeight="150" HorizontalAlignment="Center"
                            TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Производитель:"/>
+                <TextBlock Name="Seller"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="В наличии:"/>

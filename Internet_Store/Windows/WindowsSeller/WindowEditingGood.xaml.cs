@@ -23,11 +23,24 @@ namespace Internet_Store
     {
         private GoodRepository goods;
         private UserRepository users;
+        private TypeRepository types;
         public WindowEditingGood()
         {
             InitializeComponent();
             goods = new GoodRepository();
             users = new UserRepository();
+            types = new TypeRepository();
+
+            Types.ItemsSource = types.GetList();
+
+            if(CurrentUser.Role == "Админ")
+            {
+                this.Title = "Список товаров";
+            }
+            if(CurrentUser.Role == "Продавец")
+            {
+                this.Title = "Мои товары";
+            }
         }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
@@ -76,10 +89,12 @@ namespace Internet_Store
         {
             if (CurrentUser.Role == "Продавец")
             {
+                Types.SelectedIndex = -1;
                 ViewList.ItemsSource = goods.GetList().Where(i => i.SellerID == CurrentUser.User.ID);
             }
             else if (CurrentUser.Role == "Админ")
             {
+                Types.SelectedIndex = -1;
                 ViewList.ItemsSource = goods.GetList();
             }
         }
@@ -119,6 +134,25 @@ namespace Internet_Store
             WindowAddGood windowAddGood = new WindowAddGood();
             this.Close();
             windowAddGood.ShowDialog();
+        }
+
+        private void Types_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Infrastructure.Type type = Types.SelectedItem as Infrastructure.Type;
+
+            if (type == null)
+            {
+                return;
+            }
+
+            if (CurrentUser.Role == "Продавец")
+            {
+                ViewList.ItemsSource = goods.GetList().Where(i => i.SellerID == CurrentUser.User.ID && i.TypeID == type.ID);
+            }
+            else if (CurrentUser.Role == "Админ")
+            {
+                ViewList.ItemsSource = goods.GetList().Where(i => i.TypeID == type.ID);
+            }
         }
     }
 }

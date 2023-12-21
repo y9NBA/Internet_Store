@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internet_Store.Windows.Main"
         mc:Ignorable="d"
-        Title="WindowGoods" Height="450" Width="800">
+        Title="Товары" Height="500" Width="800" Icon="\Pictures\Store_Icon.ico"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -22,9 +24,21 @@
                     <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <StackPanel Orientation="Vertical">
+                <Button HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" 
+                        BorderThickness="0" Width="50" Background="White" Click="Reset_Click">
+                    <Image Source="\Pictures\Arrow_Back.png"/>
+                </Button>
+                <ComboBox x:Name="Types"
+                          VerticalAlignment="Top" Margin="10" MinWidth="100" MaxWidth="150"
+                          SelectionChanged="Types_SelectionChanged"
+                          DisplayMemberPath="Name_Type"/>
+            </StackPanel>
         </StackPanel>
-        <Button x:Name="Information" Content="Подробнее о товаре"
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="Information" Content="Подробнее о товаре"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom"
                 Margin="10" Click="Information_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
