@@ -104,6 +104,8 @@ namespace Internet_Store
             customs.Add(custom);
 
             users.Update(CurrentUser.User);
+
+            MessageBox.Show("Товар добавлен в корзину", "Store", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
