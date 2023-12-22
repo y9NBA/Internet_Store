@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Internet_Store"
         mc:Ignorable="d"
         Title="Главное меню" Height="500" Width="800"
+        Icon="\Pictures\Store_Icon.ico"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
 
