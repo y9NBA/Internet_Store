@@ -20,13 +20,13 @@ namespace Internet_Store
     /// </summary>
     public partial class WindowEditingOrder : Window
     {
-        private CustomRepository custom;
+        private CustomRepository customs;
 
         public WindowEditingOrder()
         {
             InitializeComponent();
 
-            custom = new CustomRepository();
+            customs = new CustomRepository();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -58,7 +58,29 @@ namespace Internet_Store
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Orders.ItemsSource = custom.GetList().Where(i => i.CustomerID == CurrentUser.User.ID);
+            Update();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Custom custom = Orders.SelectedItem as Custom;
+
+            if(custom == null)
+            {
+                MessageBox.Show("Заказ не выбран", "Store", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            customs.Delete(custom.ID);
+
+            MessageBox.Show($"Товар под номером {custom.ID} успешно удалён", "Store", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            Update();
+        }
+
+        private void Update()
+        {
+            Orders.ItemsSource = customs.GetList().Where(i => i.CustomerID == CurrentUser.User.ID);
         }
     }
 }

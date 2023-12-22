@@ -39,6 +39,7 @@ namespace Infrastructure
             {
                 var item = context.Custom.Include("Good")
                                          .Include("Status")
+                                         .Include("Good.User")
                                          .Include("Good.Type").ToList();
                 return item;
             }
